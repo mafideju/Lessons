@@ -18,7 +18,7 @@ public class LessonController {
 
     @RequestMapping("lessons")
     public String listAllLessons(ModelMap model) {
-        String username = "Marcio";
+        String username = "Bajcito";
         List<Lesson> lessons = lessonService.findByUsername(username);
         model.put("lessons", lessons);
         model.put("name", username);

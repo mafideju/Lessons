@@ -24,6 +24,13 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value = "welcome", method = RequestMethod.GET)
+    public String welcome(@RequestParam String name, ModelMap model) {
+        logger.warn("INSIDE WELCOME METHOD");
+        model.put("name", name);
+        return "welcome";
+    }
+
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String welcomePage(
             @RequestParam String name,
@@ -36,8 +43,8 @@ public class LoginController {
             model.put("name", name);
             return "welcome";
         }
-
         model.put("errorMessage", "Invalid credentials.");
+
         return "login";
     }
 }
