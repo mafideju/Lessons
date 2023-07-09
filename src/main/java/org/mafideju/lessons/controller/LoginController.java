@@ -20,13 +20,11 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String login() {
-        logger.warn("INSIDE LOGIN METHOD");
         return "login";
     }
 
     @RequestMapping(value = "welcome", method = RequestMethod.GET)
     public String welcome(@RequestParam String name, ModelMap model) {
-        logger.warn("INSIDE WELCOME METHOD");
         model.put("name", name);
         return "welcome";
     }
@@ -36,8 +34,6 @@ public class LoginController {
             @RequestParam String name,
             @RequestParam String password,
             ModelMap model) {
-
-        logger.warn("INSIDE WELCOME PAGE METHOD");
 
         if (authenticationService.authenticate(name, password)) {
             model.put("name", name);

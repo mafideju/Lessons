@@ -29,8 +29,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
-            <div>
-                <a class="btn btn-success" href="/welcome" role="button">Back</a>
+            <div class="btn btn-group">
+                <a class="btn btn-outline-warning" href="/welcome" role="button">Back</a>
+                <a class="btn btn-outline-success" href="/lesson-creator" role="button">Create</a>
             </div>
 		</div>
 
