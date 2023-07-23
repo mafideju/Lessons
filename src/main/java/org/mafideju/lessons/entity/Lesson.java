@@ -1,13 +1,19 @@
 package org.mafideju.lessons.entity;
 
+import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
 
 public class Lesson {
     private int id;
     private String username;
+
+    @Size(min = 2, message = "At leats 2 chars")
     private String lessonTitle;
+
+    @Size(min = 10, message = "At leats 10 chars")
     private String description;
+
     private LocalDate targetDate;
     private boolean done;
 

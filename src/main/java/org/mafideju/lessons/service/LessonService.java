@@ -3,6 +3,7 @@ package org.mafideju.lessons.service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import org.mafideju.lessons.entity.Lesson;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,14 @@ public class LessonService {
 
     public List<Lesson> findByUsername(String username) {
         return lessons;
+    }
+
+    public void newLesson(String username, String lessonTitle, String description, LocalDate targetDate, boolean done) {
+        Random random = new Random();
+        int randomNumber = random.nextInt(1001);
+        System.out.println("Random number: " + randomNumber);
+
+        Lesson lesson = new Lesson(randomNumber, username, lessonTitle, description, targetDate, done);
+        lessons.add(lesson);
     }
 }
