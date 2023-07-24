@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LessonController {
@@ -49,6 +50,14 @@ public class LessonController {
         String username = (String)model.get("name");
         lessonService.newLesson(username, lesson.getLessonTitle(), lesson.getDescription(),
                 LocalDate.now().plusDays(7), false);
+
+        return "redirect:lessons";
+    }
+
+    @RequestMapping(value = "delete-lesson")
+    public String deleteLesson(@RequestParam int id) {
+
+        lessonService.deleteService(id);
 
         return "redirect:lessons";
     }

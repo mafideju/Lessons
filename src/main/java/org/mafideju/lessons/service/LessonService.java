@@ -38,4 +38,8 @@ public class LessonService {
         Lesson lesson = new Lesson(randomNumber, username, lessonTitle, description, targetDate, done);
         lessons.add(lesson);
     }
+
+    public void deleteService(int id) {
+        lessons.removeIf(lesson -> lesson.getId() == id);
+    }
 }

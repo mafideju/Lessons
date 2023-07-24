@@ -6,6 +6,18 @@
     <script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <script src="webjars/jquery/3.6.4/jquery.min.js"></script>
         <title>Lessons</title>
+    <style>
+        .blurred {
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+        .blurred:hover {
+            filter: blur(0);
+        }
+        .centralized {
+
+        }
+    </style>
     </head>
 	<body style="background-color: whitesmoke">
 		<div class="container" style="max-width: 80%;">
@@ -17,15 +29,17 @@
 						<th>Description</th>
 						<th>Target Date</th>
 						<th>Is Done?</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${lessons}" var="lesson">
-						<tr>
-							<td>${lesson.lessonTitle}</td>
-							<td>${lesson.description}</td>
-							<td>${lesson.targetDate}</td>
-							<td>${lesson.done ? "Yeah!" : "No"}</td>
+						<tr class="centralized">
+							<td class="align-middle">${lesson.lessonTitle}</td>
+							<td class="align-middle">${lesson.description}</td>
+							<td class="align-middle">${lesson.targetDate}</td>
+							<td class="align-middle">${lesson.done ? "Yeah!" : "No"}</td>
+							<td><a href="delete-lesson?id=${lesson.id}" class="btn btn-dark btn-sm blurred">X</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
